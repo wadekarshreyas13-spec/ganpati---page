@@ -1,0 +1,390 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Georgia, serif;
+
+    background:
+        radial-gradient(circle at top,
+        #ffcf70,
+        #9b1c31 45%,
+        #28050c 100%);
+
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow-x: hidden;
+}
+
+
+/* Main container */
+
+.container {
+    width: 90%;
+    max-width: 700px;
+
+    margin: 40px auto;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: rgba(80, 0, 15, 0.55);
+
+    border: 2px solid rgba(255, 215, 100, 0.8);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 0 30px rgba(255, 200, 70, 0.5),
+        inset 0 0 30px rgba(255, 150, 50, 0.15);
+
+    backdrop-filter: blur(10px);
+
+    animation: appear 2s ease;
+}
+
+
+/* Om */
+
+.om {
+    font-size: 60px;
+
+    color: #ffd65a;
+
+    text-shadow:
+        0 0 10px #ffae00,
+        0 0 25px #ff7300;
+
+    animation: glowOm 2s infinite alternate;
+}
+
+
+.welcome {
+    color: #ffd86a;
+    font-size: 20px;
+    margin: 10px;
+}
+
+
+/* Heading */
+
+h1 {
+    font-size: 42px;
+
+    color: #ffd45c;
+
+    text-shadow:
+        2px 2px 0 #8c1d2d,
+        0 0 15px #ff9d00;
+
+    margin: 10px 0;
+}
+
+
+h2 {
+    margin: 10px;
+}
+
+
+.invitation {
+    font-size: 18px;
+    line-height: 1.7;
+
+    margin: 20px auto;
+
+    max-width: 550px;
+}
+
+
+/* Ganpati image */
+
+.ganpati-box {
+    position: relative;
+
+    width: 300px;
+    height: 300px;
+
+    margin: 25px auto;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+.ganpati {
+    width: 270px;
+    max-height: 290px;
+
+    object-fit: contain;
+
+    position: relative;
+    z-index: 2;
+
+    filter:
+        drop-shadow(0 0 15px #ffd35a)
+        drop-shadow(0 15px 15px rgba(0,0,0,0.5));
+
+    animation: ganpati3D 4s ease-in-out infinite;
+}
+
+@keyframes ganpati3D {
+
+    0% {
+        transform: translateY(0) rotateY(-8deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotateY(8deg);
+    }
+
+    100% {
+        transform: translateY(0) rotateY(-8deg);
+    }
+}
+
+
+/* Glow behind Ganpati */
+
+.glow {
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    background: #ffd34d;
+
+    filter: blur(45px);
+
+    opacity: 0.45;
+
+    animation: glow 2s infinite alternate;
+}
+
+
+/* Invitation details */
+
+.details {
+    margin: 25px auto;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 180, 50, 0.12);
+
+    border: 1px solid rgba(255, 210, 100, 0.5);
+
+    max-width: 450px;
+}
+
+
+.details p {
+    font-size: 18px;
+
+    margin: 12px;
+}
+
+
+/* Button */
+
+button {
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 30px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #6d0917;
+
+    background: linear-gradient(
+        135deg,
+        #fff0a0,
+        #ffb300
+    );
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px rgba(255, 200, 60, 0.8);
+
+    transition: 0.3s;
+}
+
+
+button:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 30px #ffd45c;
+}
+
+
+/* Hidden invitation message */
+
+.message {
+    display: none;
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    animation: messageAppear 1s ease;
+}
+
+
+.message p {
+    line-height: 1.7;
+
+    margin: 15px 0;
+}
+
+
+/* Animations */
+
+@keyframes floatGanpati {
+
+    0%, 100% {
+        transform: translateY(0) rotateY(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotateY(8deg);
+    }
+}
+
+
+@keyframes glow {
+
+    from {
+        transform: scale(0.9);
+        opacity: 0.3;
+    }
+
+    to {
+        transform: scale(1.1);
+        opacity: 0.6;
+    }
+}
+
+
+@keyframes glowOm {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .ganpati-box {
+        width: 250px;
+        height: 250px;
+    }
+
+    .ganpati {
+        width: 230px;
+        max-height: 240px;
+    }
+
+    .invitation {
+        font-size: 16px;
+    }
+
+}
+.flowers {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    font-size: 30px;
+
+    animation: flowersFall 8s linear infinite;
+
+    z-index: 10;
+}
+
+@keyframes flowersFall {
+
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
